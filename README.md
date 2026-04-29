@@ -1,63 +1,118 @@
 # relational-ai
-From CHI 2026 Paper: Scaffolded Vulnerability: Chatbot-Mediated Reciprocal Self-Disclosure and Need-Supportive Interaction in Couples
 
-Echo: A Conversation Companion
-Echo is a Telegram chatbot designed to help partners and close friends engage in meaningful self-disclosure. It guides users through structured conversation phases to help them feel more seen, known, and connected.
+Code for the CHI 2026 paper: **Scaffolded Vulnerability: Chatbot-Mediated Reciprocal Self-Disclosure and Need-Supportive Interaction in Couples**
 
-🌟 Features
-Structured Phases: Guides users through rapport-building and three deep, reflective questions.
+## Overview
 
-AI-Driven Mediation: Uses GPT-4o to provide warm, casual, and emotionally intelligent responses.
+**Echo** is a Telegram-based chatbot designed to support meaningful self-disclosure between partners or close friends.  
+It guides users through structured conversation phases, encourages reflection on each other’s responses, and helps facilitate supportive interaction.
 
-Partner Reflection: Encourages users to reflect on and support their partner’s answers.
+This repository contains the research prototype used in our study.
 
-Automated Summaries: Analyzes the conversation in real-time to provide a final summary of shared insights.
+## Features
 
-🛠️ Project Structure
-main.py: The core bot logic and Telegram integration.
+- **Structured conversation phases** for guided self-disclosure
+- **LLM-based responses** for warm and adaptive conversational support
+- **Partner reflection prompts** that encourage supportive engagement
+- **Conversation summarization** during or after the interaction
+- **Telegram group-chat integration** for two-person conversations
 
-prompts.py: Contains the detailed system instructions for the AI's personality and conversation phases.
+## Repository Structure
 
-requirements.txt: List of necessary Python libraries.
+```text
+relational-ai/
+├── main.py           # Main Telegram bot logic
+├── prompts.py        # Prompt templates and phase instructions
+├── requirements.txt  # Project dependencies
+├── README.md
+└── .env              # Local configuration file (not committed)
+```
 
-.env: (Private) Stores your API keys and bot tokens.
+## Requirements
 
-message_logs/: (Private) Local storage for chat histories and logs.
+- Python 3.10+
+- A Telegram bot token from `@BotFather`
+- An OpenAI API key
 
-🚀 Getting Started
-1. Prerequisites
-Python 3.10 or higher.
+## Installation
 
-A Telegram Bot Token (from @BotFather).
+### 1. Clone the repository
 
-An OpenAI API Key.
+```bash
+git clone https://github.com/AMAAI-Lab/relational-ai.git
+cd relational-ai
+```
 
-2. Installation
-Clone this repository or download the files, then install the dependencies:
+### 2. Create and activate a virtual environment
 
-Bash
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
 
+On Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+### 3. Install dependencies
+
+```bash
 pip install -r requirements.txt
-3. Configuration
-Create a file named .env in the root folder and add your keys:
+```
 
-Code snippet
+## Configuration
 
-OPENAI_API_KEY=your_openai_key_here
-TELEGRAM_TOKEN=your_telegram_bot_token_here
+Create a `.env` file in the project root:
+
+```env
+OPENAI_API_KEY=your_openai_api_key
+TELEGRAM_TOKEN=your_telegram_bot_token
 API_MODEL=gpt-4o
 TELEGRAM_BOT_NAME=@your_bot_username
-4. Running the Bot
-Start the bot by running:
+```
 
-Bash
+## Running the Bot
 
+```bash
 python main.py
-📝 Usage
-Add the bot to a Telegram group with your partner or friend.
+```
 
-Type /start to see the welcome message.
+## Usage
 
-Type /continue whenever you are both ready to move to the next part of the conversation.
+1. Add the bot to a Telegram group chat with two users.
+2. Start the bot with:
+   - `/start` to begin
+   - `/continue` to move to the next phase
+   - `/pause` to pause the interaction
+3. Follow the prompts in the group chat.
 
-Use /pause if you need to take a break.
+## Notes
+
+- This repository provides a **research prototype** and is not intended as a production deployment.
+- The bot assumes a Telegram-based, two-user conversation setting.
+- Local message logs may be stored during execution; make sure these are excluded from version control.
+
+## Citation
+
+```bibtex
+@inproceedings{10.1145/3772318.3791370,
+author = {Jiang, Zhuoqun and Yeo, ShunYi and Herremans, Dorien and Tangi Perrault, Simon},
+title = {Scaffolded Vulnerability: Chatbot-Mediated Reciprocal Self-Disclosure and Need-Supportive Interaction in Couples},
+year = {2026},
+isbn = {9798400722783},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3772318.3791370},
+doi = {10.1145/3772318.3791370},
+abstract = {While reciprocal self-disclosure drives intimacy, digital tools seldom scaffold autonomy, competence, and relatedness—the motivational underpinnings defined by Self-Determination Theory (SDT) that enable deep exchange. We introduce a chatbot employing dual-layer scaffolding to satisfy these needs: first providing enabling affordances (instrumental support) for vulnerability, then mediating affordances (relational support) for responsiveness. In a randomized study (N = 72; 36 couples) comparing Partner Support (PS: both layers), Direct Support (DS: enabling only), and Basic Prompt (BP: questions only), results reveal a critical distinction. While enabling affordances (PS, DS) were sufficient to deepen disclosure, only mediating affordances (PS) reliably elicited partner-provided need support and increased perceived closeness. Furthermore, controlled motivation decreased across conditions, and scaffolding buffered vitality, which remained stagnant in BP. We contribute empirical evidence that SDT-guided mediation fosters connection, offering a practical framework for designing AI-mediated conversations that support, rather than replace, human intimacy.},
+booktitle = {Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems},
+articleno = {1296},
+numpages = {39},
+keywords = {Human-human interaction, Self-disclosure, Conversational agent, Social computing, Relational technology},
+location = {
+},
+series = {CHI '26}
+}
+```
